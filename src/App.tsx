@@ -47,7 +47,11 @@ const App = () => {
                         <h1>Faça o login</h1>
                     </Text>
                     {userData === null ||
-                        (userData === undefined ?  <Spinner /> : <h1>informações carregadas</h1>)}
+                        (userData === undefined ? (
+                            <Spinner />
+                        ) : (
+                            <h1>informações carregadas</h1>
+                        ))}
                     <Input
                         placeholder="email"
                         value={email}
