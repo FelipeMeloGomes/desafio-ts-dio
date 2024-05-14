@@ -1,7 +1,33 @@
-import { ChakraProvider, Input, Box, Button, Text } from "@chakra-ui/react";
+import {
+    ChakraProvider,
+    Input,
+    Box,
+    Button,
+    Text,
+    Spinner,
+} from "@chakra-ui/react";
 import { login } from "./services/login";
+import { useState, useEffect } from "react";
+import { api } from "./api/api";
 
-function App() {
+interface UserData {
+    email: string;
+    password: string;
+    name: string;
+}
+
+const App = () => {
+    const [email, setEmail] = useState<string>("");
+    const [userData, setUserData] = useState<null | UserData>();
+
+    useEffect(() => {
+        const getData = async () => {
+            const data: any | UserData = await api;
+            setUserData(data);
+        };
+
+        getData();
+    }, []);
     return (
         <ChakraProvider>
             <Box minHeight="100vh" backgroundColor="#9413dc" padding="30px">
@@ -20,10 +46,16 @@ function App() {
                     <Text>
                         <h1>Faça o login</h1>
                     </Text>
-                    <Input placeholder="email" />
+                    {userData === null ||
+                        (userData === undefined ?  <Spinner /> : <h1>informações carregadas</h1>)}
+                    <Input
+                        placeholder="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                     <Input placeholder="password" />
                     <Button
-                        onClick={login}
+                        onClick={() => login(email)}
                         colorScheme="teal"
                         size="sm"
                         width="100%"
@@ -35,6 +67,6 @@ function App() {
             </Box>
         </ChakraProvider>
     );
-}
+};
 
-export default App;
+export { App };
