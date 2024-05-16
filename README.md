@@ -11,7 +11,9 @@ O Dio Bank é uma aplicação web desenvolvida utilizando React, uma biblioteca 
 -   **React**: Framework JavaScript para construção de interfaces de usuário.
 -   **Typescript**: Linguagem de programação que adiciona tipagem estática ao JavaScript.
 -   **JavaScript**: Linguagem de programação.
--   **Jest**: Uma biblioteca de testes de JavaScript com um foco especial em simplicidade e facilidade de uso para testes no front-end.
+-   **Jest**: Uma biblioteca de testes de JavaScript com um foco especial em simplicidade e facilidade de
+    uso para testes no front-end.
+-   **Chakra UI**: simplifica o desenvolvimento front-end no React com uma vasta coleção de componentes personalizáveis, permitindo a criação rápida de interfaces elegantes e responsivas.
 
 ## Como Rodar o Projeto
 
